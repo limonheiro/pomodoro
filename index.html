@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<style>
-    *{
-        background-color: #D32F2F;
+  </head>
+  <style>
+    * {
+      background-color: #d32f2f;
     }
-    
-    h1{
-        border: black;
-        text-align: center;
-        font-family: sans-serif;
-        color: white;
-        font-size: 100pt;
+
+    #timer {
+      border: black;
+      text-align: center;
+      font-family: sans-serif;
+      color: white;
+      font-size: 100pt;
     }
-</style>
-<body>
-    <h1>25:00</h1>
-</body>
+  </style>
+  <body>
+    <div id="timer"></div>
+
+    <script>
+    let d = 25 * 60;
+      let myVar = setInterval(myTimer, 1000);
+  
+      let numf = (n) => {
+        if (n < 10) {
+          return "0" + n;
+        }
+        return n;
+      };
+      function myTimer() {
+        let min = parseInt(d / 60);
+        let sec = d % 60;
+        document.getElementById("timer").innerHTML =
+          numf(min) + ":" + numf(sec);
+        d--;
+        if (d < 0) {
+          document.getElementById("timer").innerHTML = "00" + ":" + "00";
+        }
+      }
+    </script>
+  </body>
 </html>
